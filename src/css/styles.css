@@ -23,3 +23,130 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.gallery-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.galery-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Додає відступ знизу для галереї */
+}
+
+.get-img {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-right: 10px; /* Простір між полем вводу та кнопкою */
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: 1px solid #007BFF;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+/* .card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 300px;
+} */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-link {
+  display: flex;
+  flex-direction:inherit;
+  justify-content:space-between;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f7f7f7;
+}
+
+.stats-item {
+  text-align: center;
+}
+
+.stats-item .elements {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px;
+}
+
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid;
+  border-color: #FF3D00 transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
+.hidden {
+  display: none;
+}
