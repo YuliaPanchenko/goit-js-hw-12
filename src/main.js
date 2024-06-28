@@ -29,7 +29,7 @@ form.addEventListener("submit", async (e)=> {
     });
     return;
   }
-  hideLoadBtn();
+  // hideLoadBtn();
   showLoader();
   try {
     const data = await getImages(inputValue, currentPage)
