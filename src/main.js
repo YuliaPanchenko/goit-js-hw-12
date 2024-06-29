@@ -14,16 +14,16 @@ const list = document.querySelector(".gallery");
 const loader = document.querySelector(".js-loader");
 const btnLoadMore = document.querySelector(".load-more")
 
-let inputValue = "";
-let currentPage = 1;
-let maxPage = 1;
-
 const lightbox = new SimpleLightbox('.gallery a', {
   captions: true,
   captionsData: 'alt',
   captionDelay: 250,
   captionPosition: 'bottom',
 });
+
+let inputValue = "";
+let currentPage = 1;
+let maxPage = 1;
 
 form.addEventListener("submit", async (e)=> {
   e.preventDefault();
