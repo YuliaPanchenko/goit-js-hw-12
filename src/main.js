@@ -18,6 +18,13 @@ let inputValue = "";
 let currentPage = 1;
 let maxPage = 1;
 
+const lightbox = new SimpleLightbox('.gallery a', {
+  captions: true,
+  captionsData: 'alt',
+  captionDelay: 250,
+  captionPosition: 'bottom',
+});
+
 form.addEventListener("submit", async (e)=> {
   e.preventDefault();
   inputValue = e.target.elements.text.value.trim();
@@ -34,6 +41,7 @@ form.addEventListener("submit", async (e)=> {
   try {
     const data = await getImages(inputValue, currentPage)
     if (data.hits.length === 0) {
+      list.innerHTML = '';
       iziToast.error({
         message: 'Sorry, there are no images matching your search query. Please try again!',
       });
@@ -45,12 +53,6 @@ form.addEventListener("submit", async (e)=> {
     list.innerHTML = markup;
     updateBtnStatus();
 
-    const lightbox = new SimpleLightbox('.gallery a', {
-      captions: true,
-      captionsData: 'alt',
-      captionDelay: 250,
-      captionPosition: 'bottom',
-    });
     lightbox.refresh();
   } catch {
     iziToast.error({
@@ -70,13 +72,7 @@ btnLoadMore.addEventListener("click", async (e)=> {
     const data = await getImages(inputValue, currentPage)
     const markup = renderImages(data.hits);
     list.insertAdjacentHTML("beforeend", markup);
-  
-    const lightbox = new SimpleLightbox('.gallery a', {
-      captions: true,
-      captionsData: 'alt',
-      captionDelay: 250,
-      captionPosition: 'bottom',
-    });
+    updateBtnStatus();
     lightbox.refresh();
     skipOldElements();
   } catch {
@@ -120,7 +116,7 @@ function skipOldElements(){
   if (liElem) {
     const height = liElem.getBoundingClientRect().height;
     window.scrollBy({
-      top: height * 3,
+      top: height * 2,
       behavior: "smooth",
     });
   }
